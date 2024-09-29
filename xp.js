@@ -2,7 +2,7 @@ const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fet
 const { getUserLanguages, headers, removeQuotes } = require('./helper.js');
 
 const init = async () => {
-    const lessonsToComplete = Number(process.env.lessonsToComplete) || 5;
+    const lessonsToComplete = Number(process.env.lessonsToComplete) || 5000;
     const token = removeQuotes(process.env.token);
     const userId = removeQuotes(process.env.userId);
 
@@ -50,8 +50,8 @@ const init = async () => {
                     body: JSON.stringify({
                         ...createdSession,
                         beginner: false,
-                        challengeTimeTakenCutoff: 6000,
-                        startTime: (Date.now() - 60000) / 1000,
+                        challengeTimeTakenCutoff: 3000,
+                        startTime: (Date.now() - 30000) / 1000,
                         enableBonusPoints: true,
                         endTime: Date.now() / 1000,
                         failed: false,
@@ -63,7 +63,7 @@ const init = async () => {
                         sessionExperimentRecord: [],
                         sessionStartExperiments: [],
                         showBestTranslationInGradingRibbon: true,
-                        xpPromised: 201,
+                        xpPromised: 501,
                     }),
                 }).then(res => {
                     if (!res.ok) {
