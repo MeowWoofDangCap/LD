@@ -7,10 +7,10 @@ on:
       lessonsToComplete:
         description: 'Amount of fake lessons to complete each time. (Each give 200 XP)'
         required: true
-        default: 5
+        default: 5000
 
   schedule:
-    - cron: '*/45 * * * *'
+    - cron: '*/5 * * * *'
 
 jobs:
   check-bats-version:
