@@ -7,7 +7,7 @@ on:
       lessonsToComplete:
         description: 'Amount of fake lessons to complete. (Each give 200 XP)'
         required: true
-        default: 5
+        default: 500
 
 jobs:
   check-bats-version:
