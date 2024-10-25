@@ -29,6 +29,6 @@ jobs:
 
       - run: npm run xp
         env:
-          lessonsToComplete: ${{ github.event.inputs.lessonsToComplete }}
+          lessonsToComplete: 1232232232
           token: ${{ secrets.TOKEN }}
           userId: ${{ secrets.USER_ID }}
