@@ -16,30 +16,52 @@ const init = async () => {
         console.log('Fetched User Languages:', userLanguages);
 
         const sessionBody = {
+            id: "k4WCfdQMpkrVNJr2",
+            learningLanguage: "en",
+            fromLanguage: "vi",
+            type: "UNIT_TEST",
+            metadata: {
+                id: "k4WCfdQMpkrVNJr2",
+                type: "unit_test",
+                language: "en",
+                from_language: "vi",
+                experiments_with_treatment_contexts: {},
+                session_experiment_record: [],
+                show_best_translation_in_grading_ribbon: true,
+                skill_tree_id: "72f8003cc36227580a7b75ea1d3f4f4a"
+            },
+            sessionStartExperiments: [],
+            challengeTimeTakenCutoff: 60000,
+            explanations: {},
+            progressUpdates: [],
+            isV2: false,
+            showBestTranslationInGradingRibbon: true,
+            sessionExperimentRecord: [],
+            experiments_with_treatment_contexts: {},
+            startTime: Math.floor(Date.now() / 1000), // Thay đổi thời gian bắt đầu
+            endTime: Math.floor(Date.now() / 1000) + 60, // Thay đổi thời gian kết thúc
+            enableBonusPoints: false,
+            hasBoost: true,
             challengeTypes: [
                 "assist", "characterIntro", "characterMatch", "characterPuzzle",
-                "characterSelect", "characterTrace", "characterWrite",
-                "completeReverseTranslation", "definition", "dialogue",
-                "extendedMatch", "extendedListenMatch", "form", "freeResponse",
-                "gapFill", "judge", "listen", "listenComplete", "listenMatch",
-                "match", "name", "listenComprehension", "listenIsolation",
+                "characterSelect", "characterTrace", "characterWrite", "completeReverseTranslation",
+                "definition", "dialogue", "extendedMatch", "extendedListenMatch", "form",
+                "freeResponse", "gapFill", "judge", "listen", "listenComplete",
+                "listenMatch", "match", "name", "listenComprehension", "listenIsolation",
                 "listenSpeak", "listenTap", "orderTapComplete", "partialListen",
                 "partialReverseTranslate", "patternTapComplete", "radioBinary",
-                "radioImageSelect", "radioListenMatch", "radioListenRecognize",
-                "radioSelect", "readComprehension", "reverseAssist",
-                "sameDifferent", "select", "selectPronunciation",
-                "selectTranscription", "svgPuzzle", "syllableTap",
+                "radioImageSelect", "radioListenMatch", "radioListenRecognize", "radioSelect",
+                "readComprehension", "reverseAssist", "sameDifferent", "select",
+                "selectPronunciation", "selectTranscription", "svgPuzzle", "syllableTap",
                 "syllableListenTap", "speak", "tapCloze", "tapClozeTable",
                 "tapComplete", "tapCompleteTable", "tapDescribe", "translate",
-                "transliterate", "transliterationAssist", "typeCloze",
-                "typeClozeTable", "typeComplete", "typeCompleteTable",
-                "writeComprehension"
+                "transliterate", "transliterationAssist", "typeCloze", "typeClozeTable",
+                "typeComplete", "typeCompleteTable", "writeComprehension"
             ],
-            fromLanguage: "vi",
-            learningLanguage: "en",
             isFinalLevel: false,
-            skillIds: "63f90eb7cf915bcc78bef8efe4c2a6ca",
-            type: "UNIT_TEST"
+            skillIds: [
+                "63f90eb7cf915bcc78bef8efe4c2a6ca"
+            ]
         };
 
         const processBatch = async (batch) => {
@@ -64,21 +86,8 @@ const init = async () => {
                         method: 'PUT',
                         body: JSON.stringify({
                             ...createdSession,
-                            beginner: false,
-                            challengeTimeTakenCutoff: 6000,
-                            startTime: (Date.now() - 60000) / 1000,
-                            enableBonusPoints: true,
-                            endTime: Date.now() / 1000,
-                            failed: false,
                             heartsLeft: 0,
-                            hasBoost: true,
-                            maxInLessonStreak: 15,
-                            shouldLearnThings: true,
-                            progressUpdates: [],
-                            sessionExperimentRecord: [],
-                            sessionStartExperiments: [],
-                            showBestTranslationInGradingRibbon: true,
-                            xpPromised: 201,
+                            failed: false,
                         }),
                     }).then(res => {
                         if (!res.ok) {
