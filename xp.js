@@ -16,17 +16,30 @@ const init = async () => {
         console.log('Fetched User Languages:', userLanguages);
 
         const sessionBody = {
-            challengeTypes: ["listen"],
-            fromLanguage: userLanguages.fromLanguage,
+            challengeTypes: [
+                "assist", "characterIntro", "characterMatch", "characterPuzzle",
+                "characterSelect", "characterTrace", "characterWrite",
+                "completeReverseTranslation", "definition", "dialogue",
+                "extendedMatch", "extendedListenMatch", "form", "freeResponse",
+                "gapFill", "judge", "listen", "listenComplete", "listenMatch",
+                "match", "name", "listenComprehension", "listenIsolation",
+                "listenSpeak", "listenTap", "orderTapComplete", "partialListen",
+                "partialReverseTranslate", "patternTapComplete", "radioBinary",
+                "radioImageSelect", "radioListenMatch", "radioListenRecognize",
+                "radioSelect", "readComprehension", "reverseAssist",
+                "sameDifferent", "select", "selectPronunciation",
+                "selectTranscription", "svgPuzzle", "syllableTap",
+                "syllableListenTap", "speak", "tapCloze", "tapClozeTable",
+                "tapComplete", "tapCompleteTable", "tapDescribe", "translate",
+                "transliterate", "transliterationAssist", "typeCloze",
+                "typeClozeTable", "typeComplete", "typeCompleteTable",
+                "writeComprehension"
+            ],
+            fromLanguage: "vi",
+            learningLanguage: "en",
             isFinalLevel: false,
-            isV2: true,
-            juicy: true,
-            learningLanguage: userLanguages.learningLanguage,
-            levelIndex: 1,
-            shakeToReportEnabled: true,
-            skillId: "20017c47905904a4bbdfa3ca1b4bd85e",
-            smartTipsVersion: 2,
-            type: "LEGENDARY_LEVEL",
+            skillIds: "63f90eb7cf915bcc78bef8efe4c2a6ca",
+            type: "UNIT_TEST"
         };
 
         const processBatch = async (batch) => {
